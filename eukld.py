@@ -16,9 +16,17 @@ def eukld(a, m):
     for i in range(len(y)):
         print("{0:5} {1:5} | {2:3}".format(y[i], r[i], q[i]))
     print(" " * 10 + "0 |\n")
-    print("ggT({0}, {1}) = {2}\n".format(a, m, r[-2]))
+    print("ggT({0}, {1}) = {2}".format(a, m, r[-2]))
 
-
-sys.argv.pop(0)
-sys.argv.sort()
-eukld(int(sys.argv[0]), int(sys.argv[1]))
+try:
+    sys.argv.pop(0)
+    if len(sys.argv) != 2:
+        raise TypeError
+    sys.argv.sort()
+    sys.argv = list(map(int, sys.argv))
+    if min(sys.argv) <= 0:
+        raise ValueError
+    eukld(sys.argv[0], sys.argv[1])
+except (TypeError, ValueError):
+    print("Syntax: eukld.py number1 number2")
+print()
