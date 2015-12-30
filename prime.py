@@ -34,7 +34,7 @@ def phi(m):
 
 def sqrfree(m):
     facts = fact(m)
-    return True if len(facts) == len(set(facts)) else False
+    return len(facts) == len(set(facts))
 
 
 numberlist = []
