@@ -22,11 +22,10 @@ try:
     sys.argv.pop(0)
     if len(sys.argv) != 2:
         raise TypeError
-    sys.argv.sort()
     sys.argv = list(map(int, sys.argv))
     if min(sys.argv) <= 0:
         raise ValueError
-    eukld(sys.argv[0], sys.argv[1])
+    eukld(max(sys.argv), min(sys.argv))
 except (TypeError, ValueError):
     print("Syntax: eukld.py number1 number2")
 print()
